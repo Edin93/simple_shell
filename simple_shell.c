@@ -1,5 +1,15 @@
 #include "header.h"
 /**
+ * sig_handler - handler ctrl + c.
+ * @i: integer.
+ */
+void sig_handler(int i)
+{
+	(void)i;
+	_pstr("\n$ ");
+}
+
+/**
  * main - main simple shell function.
  * @ac: arguments count.
  * @av: arguments vector.
@@ -13,6 +23,8 @@ int main(int ac, char **av, char **envp)
 	int i, status, cmd_n = 0;
 	pid_t c;
 	ssize_t n_chars;
+
+	signal(SIGINT, sig_handler);
 
 	(void)envp;
 	if (isatty(STDIN_FILENO))
@@ -59,7 +71,7 @@ int main(int ac, char **av, char **envp)
 				if (execve(cmds[0], cmds, NULL) == -1)
 				{
 					perror(av[0]);
-					exit(1);
+					exit(EXIT_FAILURE);
 				}
 			}
 			if (wait(&status) == -1)
