@@ -28,15 +28,10 @@ void _free_cmds(char **cmds)
 {
 	int i = 0;
 
-	if (cmds != NULL)
+	while (cmds[i])
 	{
-		while (cmds[i])
-		{
-			free(cmds[i]);
-			i++;
-		}
-		free(cmds);
+		free(cmds[i]);
+		i++;
 	}
-	else
-		return;
+	free(cmds);
 }

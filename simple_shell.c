@@ -32,8 +32,7 @@ int main(int ac, char **av, char **envp)
 	while ((n_chars = getline(&lineptr, &s, stdin)) != -1)
 	{
 		cmds = NULL;
-		/* cmds = malloc(sizeof(char *) * _get_cmds_number(lineptr)); */
-		cmds = malloc(sizeof(char *) * ac);
+		cmds = malloc(sizeof(char *) * _get_cmds_number(lineptr));
 		token = strtok(lineptr, " \n");
 		i = 0;
 
