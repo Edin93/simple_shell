@@ -9,7 +9,12 @@
  */
 void _disp_cnf_err(char *pn, char *err_src, int num)
 {
-	printf("%s: %d: %s: not found\n", pn, num, err_src);
+	_pstr(pn);
+	_pstr(": ");
+	_putchar(num + '0');
+	_pstr(": ");
+	_pstr(err_src);
+	_pstr(": not found");
 }
 
 /**

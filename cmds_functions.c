@@ -35,3 +35,17 @@ void _free_cmds(char **cmds)
 	}
 	free(cmds);
 }
+
+/**
+ * _free_proc_conds - free cmds and getline buffer under certain conditions
+ * @cmds: array of user commands.
+ * @lineptr: getline's buffer.
+ * Return: void.
+ */
+void _free_proc_conds(char **cmds, char *lineptr)
+{
+	if (cmds != NULL)
+		_free_cmds(cmds);
+	if (lineptr != NULL)
+		free(lineptr);
+}

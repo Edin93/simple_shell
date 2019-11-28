@@ -48,4 +48,12 @@ char *_find_path(char *str);
 
 void _disp_cnf_err(char *pn, char *err_src, int num);
 void _disp_err(char *str);
+
+char **create_cmds(char *str);
+
+void sig_handler(int i);
+
+void exec_usr_input(char *av0, char **cmds, int status);
+
+void _free_proc_conds(char **cmds, char *lineptr);
 #endif
