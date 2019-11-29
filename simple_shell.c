@@ -33,12 +33,13 @@ int main(int ac, char **av, char **envp)
 		fp_res = _find_path(*cmds);
 		if (fp_res != NULL)
 			cmds[0]  = _strdup(fp_res);
-		exec_usr_input(av[0], cmds, status);
+		exec_usr_input(av[0], cmds, status, lineptr);
 		if (isatty(STDIN_FILENO))
 			_pstr("$ ");
 	}
 	if (n_chars == -1)
 	{
+		_free_proc_conds(cmds, lineptr);
 		if (isatty(STDIN_FILENO))
 			_putchar('\n');
 		exit(0);

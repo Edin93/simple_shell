@@ -53,7 +53,7 @@ char **create_cmds(char *str);
 
 void sig_handler(int i);
 
-void exec_usr_input(char *av0, char **cmds, int status);
+void exec_usr_input(char *av0, char **cmds, int status, char *lineptr);
 
 void _free_proc_conds(char **cmds, char *lineptr);
 #endif

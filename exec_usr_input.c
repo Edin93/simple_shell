@@ -5,9 +5,10 @@
  * @av0: first element of av.
  * @cmds: typed commands.
  * @status: number to change it's value with sys call wait.
+ * @lineptr: getline's buffer;
  * Return: void.
  */
-void exec_usr_input(char *av0, char **cmds, int status)
+void exec_usr_input(char *av0, char **cmds, int status, char *lineptr)
 {
 	pid_t c;
 
@@ -18,7 +19,7 @@ void exec_usr_input(char *av0, char **cmds, int status)
 	}
 	if (c == 0)
 	{
-		if (execve(cmds[0], cmds, NULL) == -1)
+		if (execve(cmds[0], cmds, environ) == -1)
 		{
 			perror(av0);
 			exit(EXIT_FAILURE);
@@ -26,6 +27,7 @@ void exec_usr_input(char *av0, char **cmds, int status)
 	}
 	if (wait(&status) == -1)
 	{
+		_free_proc_conds(cmds, lineptr);
 		perror(av0);
 	}
 }
