@@ -31,9 +31,7 @@ int main(int ac, char **av, char **envp)
 		{
 			if (_strcmp(cmds[0], "exit") == 0)
 			{
-				_free_cmds(cmds);
-				free(lineptr);
-				exit(0);
+				_free_proc_conds(cmds, lineptr), exit_func(cmds);
 			}
 			fp_res = _find_path(*cmds);
 			if (fp_res != NULL)
