@@ -14,7 +14,8 @@ int main(int ac, char **av, char **envp)
 	int status = 0, cmd_n = 0;
 	ssize_t n_chars;
 
-	(void)ac, (void)envp;
+	(void)ac;
+	(void)envp;
 	signal(SIGINT, sig_handler);
 	if (isatty(STDIN_FILENO))
 		_pstr("$ ");
@@ -24,22 +25,26 @@ int main(int ac, char **av, char **envp)
 		if (lineptr)
 			cmds = create_cmds(lineptr);
 		cmd_n++;
-		if (_strcmp(cmds[0], "exit") == 0)
+		if (!cmds || !cmds[0])
+			;
+		else
 		{
-			_free_cmds(cmds);
-			free(lineptr);
-			exit(0);
+			if (_strcmp(cmds[0], "exit") == 0)
+			{
+				_free_cmds(cmds);
+				free(lineptr);
+				exit(0);
+			}
+			fp_res = _find_path(*cmds);
+			if (fp_res != NULL)
+				cmds[0]  = _strdup(fp_res);
+			exec_usr_input(av[0], cmds, status, lineptr);
 		}
-		fp_res = _find_path(*cmds);
-		if (fp_res != NULL)
-			cmds[0]  = _strdup(fp_res);
-		exec_usr_input(av[0], cmds, status, lineptr);
 		if (isatty(STDIN_FILENO))
 			_pstr("$ ");
 	}
 	if (n_chars == -1)
 	{
-		_free_proc_conds(cmds, lineptr);
 		if (isatty(STDIN_FILENO))
 			_putchar('\n');
 		exit(0);

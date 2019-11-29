@@ -6,14 +6,11 @@
  */
 int _get_cmds_number(char *str)
 {
-	int n, i;
+	int n = 0, i;
 
-	n = 0;
-	if (str != NULL)
-		n++;
 	for (i = 0; str[i]; i++)
 	{
-		if (str[i] == ' ')
+		if (str[i] == ' ' && str[i + 1] != ' ')
 			n++;
 	}
 	return (n);
