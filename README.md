@@ -1,42 +1,49 @@
 # Simple Shell Project
 
 ## simple_shell
-- A simple Unix command interpreter.
+* A simple Unix command interpreter.
 
-## Introduction
-this project is a simpler version of the linux shell.
+## Author Description
+* I'm a software engineering student at Holberton School, with 2 years of experience in Javascript web technologies.
+* I'm mostly confident with JavaScript (MERN Stack) and Python and I'm looking for a full time software engineering job.
+* You can reach me out on:
+	- [Twitter](https://twitter.com/h_edin93)
+	- [LinkedIn](https://www.linkedin.com/in/houssem-eddine-ben-khalifa-b0a2a412b/)
+	- [Email](mailto:il_matador@hotmail.fr)
+
+## Project Description
+* this project is a simpler version of the linux shell.
 It englobes the essential parts that we've learned in C and Linux during the first Trimester at Holberton School.
 A user of this simple shell, can run different functionalities that the real shell does.
+
+## Technologies and Concepts
+- C.
+- Linux (Ubuntu 14.04 LTS).
 
 ## CREATION
 This simple shell was created an Ubuntu 14.04 LTS Operating system, using the C programming language.
 
-## Download
-
+## Clone
 * Cloning the repository, by running this command, (you need to have git installed on your machine)<br/>
-```git clone https://github.com/Edin93/simple_shell.git```
+`git clone https://github.com/Edin93/simple_shell.git`
 
 ## Compilation
 
 * Go to the project's directory:<br/>
-```cd simple_shell```
+`cd simple_shell`
 
 *  Compile the repository, this way (you need to have gcc installed on your machine): <br/>
-```gcc -Wall -Werror -Wextra -pedantic *.c -o hsh```
+`gcc -Wall -Werror -Wextra -pedantic *.c -o hsh`
 
 ## Usage
 
 #### You can use the shell in 2 different modes:
 
 * using the shell in an interactive-way:<br/>
-```./hsh``` you'll get a prompt, then you can start using the shell (Example 1).
+`./hsh` you'll get a prompt, then you can start using the shell (Example 1).
 
 * Using the shell in a non-interactive mode:<br/>
-```echo "/bin/ls" | ./hsh``` (Example 2).
-
-## Example <br/>
-![alt text](https://github.com/Edin93/simple_shell/blob/master/example.png)
-<br/>
+`echo "/bin/ls" | ./hsh` (Example 2).
 
 ## The essential Simple Shell Functionalities:
 * Passing Betty (code style checker for holberton C coding standards) checks.
@@ -112,6 +119,10 @@ shell.
 - The end user write something on the terminal (input/output interface). The shell
 interpretes what's written to the kernel. The kernel gets the interpretations from
 the shell and does its job.
+
+## Screenshot
+![alt text](https://github.com/Edin93/simple_shell/blob/master/example.png)
+<br/>
 
 # TEAM
 If you like this project and you're interested in getting into contact with the team.
